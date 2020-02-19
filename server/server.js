@@ -30,7 +30,6 @@ app.use(function (req, res, next) {
 app.use('^/$', (req, res, next) => {
     fs.readFile(path.resolve('./build/index.html'), 'utf-8', (err, data)=>{
         if (err){
-            console.log(err);
             return res.status(500).send("Some error happened")
         }
         return res.send(data.replace(
@@ -39,7 +38,7 @@ app.use('^/$', (req, res, next) => {
     })
 });
 
-app.get('/har', (req, res) => res.json({a: "15"}));
+app.get('/data', (req, res) => res.json({data:"data"}));
 
 app.use(express.static(path.resolve(__dirname, '..','build')));
 

@@ -16,20 +16,15 @@ const fetchApp = (url) => {
   })
 }
 
-function App(props) {
+function App() {
   const [res, setRes] = useState()
-   fetchApp('http://127.0.0.1:8000/har').then(response => {
-       console.log(response)
+   fetchApp('http://127.0.0.1:8000/data').then(response => {
      setRes(response)
    })
-
-    console.log(props.customComp,"-infqnaa")
-
     return (
         <div className="App">
-           <div className={"xachik"}>{ props.customComp }</div>
           <header className="App-header">
-            <p>{res && res.a}</p>
+            <p>{res && res.data}</p>
             <img src={logo} className="App-logo" alt="logo" />
             <p>
               Edit <code>src/App.js</code> and save to reload.
